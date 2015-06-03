@@ -5,6 +5,7 @@
     "includes": [
         "key_value_store.json",
         "agent.json",
-        "catalog.json"
+        "catalog.json",
+        "health.json"
     ]
 }

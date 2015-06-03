@@ -5,6 +5,39 @@
             "uri": "/v1/catalog/datacenters",
             "summary": "Retrieves a list of datacenters",
             "responseClass": "BR\\Consul\\Model\\DatacenterList"
+        },
+        "GetNode": {
+          "httpMethod": "GET",
+          "uri": "/v1/catalog/node/{node}",
+          "summary": "Gets a Node from the catalog",
+          "responseClass": "BR\\Consul\\Model\\Node",
+          "parameters": {
+            "key": {
+              "location": "uri",
+              "description": "Key of the value to retrieve",
+              "required": true
+            },
+            "datacenter": {
+              "sentAs": "dc",
+              "location": "query",
+              "description": "Which datacenter to query",
+              "required": false
+            }
+          }
+        },
+      "GetNodes": {
+        "httpMethod": "GET",
+        "uri": "/v1/catalog/nodes",
+        "summary": "Gets a Nodes from the catalog",
+        "responseClass": "BR\\Consul\\Model\\NodeList",
+        "parameters": {
+          "datacenter": {
+            "sentAs": "dc",
+            "location": "query",
+            "description": "Which datacenter to query",
+            "required": false
+          }
         }
+      }
     }
 }

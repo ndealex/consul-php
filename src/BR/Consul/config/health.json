@@ -1,0 +1,29 @@
+{
+  "operations": {
+    "getHealthService": {
+      "httpMethod": "GET",
+      "uri": "/v1/health/service/{service}",
+      "summary": "Gets a Service with healthy information from the catalog",
+      "responseClass": "BR\\Consul\\Model\\Service",
+      "parameters": {
+        "service": {
+          "location": "uri",
+          "description": "ID of the service to retrieve",
+          "required": true
+        },
+        "datacenter": {
+          "sentAs": "dc",
+          "location": "query",
+          "description": "Which datacenter to query",
+          "required": false
+        },
+        "tag": {
+          "sentAs": "tag",
+          "location": "query",
+          "description": "Tag to be filter in query",
+          "required": false
+        }
+      }
+    }
+  }
+}

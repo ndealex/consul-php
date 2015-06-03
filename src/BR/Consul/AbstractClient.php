@@ -2,6 +2,7 @@
 
 namespace BR\Consul;
 
+use Guzzle\Http\Message\Request;
 use Guzzle\Service\Client as GuzzleClient;
 use Guzzle\Service\Description\ServiceDescription;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -20,6 +21,11 @@ abstract class AbstractClient
     {
         $this->client = new GuzzleClient($baseUrl);
         $this->client->setDescription(ServiceDescription::factory(__DIR__ . '/config/service.json'));
+        $this->client->getEventDispatcher()->addListener('client.create_request', function ($event){
+            /** @var Request $request */
+            $request = $event['request'];
+            $request->getQuery()->useUrlEncoding(false);
+        });
     }
 
     /**

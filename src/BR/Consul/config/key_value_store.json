@@ -19,6 +19,35 @@
                 }
             }
         },
+        "LS": {
+          "httpMethod": "GET",
+          "uri": "/v1/kv/{key}",
+          "summary": "Gets a value from the key/value storage",
+          "responseClass": "BR\\Consul\\Model\\KeyList",
+          "parameters": {
+            "key": {
+              "location": "uri",
+              "description": "Folder with sub keys to retrieve",
+              "required": true
+            },
+            "keys": {
+              "sentAs": "keys",
+              "location": "query",
+              "required": false
+            },
+            "separator": {
+              "sentAs": "separator",
+              "location": "query",
+              "required": false
+            },
+            "datacenter": {
+              "sentAs": "dc",
+              "location": "query",
+              "description": "Which datacenter to query",
+              "required": false
+            }
+          }
+        },
         "SetValue": {
             "httpMethod": "PUT",
             "uri": "/v1/kv/{key}",
